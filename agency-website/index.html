@@ -22,7 +22,12 @@
 
     <!-- Bootstrap core CSS -->
     <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-
+	
+	<!-----Bot UI ---->
+  <link rel="stylesheet" href="https://unpkg.com/botui/build/botui.min.css" />
+    <link rel="stylesheet" href="https://unpkg.com/botui/build/botui-theme-default.css" />
+	
+	
     <!-- Custom fonts for this template -->
     <link href="vendor/font-awesome/css/font-awesome.min.css" rel="stylesheet" type="text/css">
     <link href="https://fonts.googleapis.com/css?family=Montserrat:400,700" rel="stylesheet" type="text/css">
@@ -30,9 +35,32 @@
     <link href='https://fonts.googleapis.com/css?family=Droid+Serif:400,700,400italic,700italic' rel='stylesheet' type='text/css'>
     <link href='https://fonts.googleapis.com/css?family=Roboto+Slab:400,100,300,700' rel='stylesheet' type='text/css'>
 
+	
+	   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <!-- Custom styles for this template -->
     <link href="css/agency.min.css" rel="stylesheet">
+	
+  <style>
+  #toggle {
+	z-index: +2;
+	border-radius: 100%;
+	width: 50px;
+	height: 48px;
+	background-color: gray;
+	position: fixed;
+   right: 0;
+   bottom: 0;
+   border-style: solid;
+   border-color: #fed136;
+   border-width: 5px;
+   
+   toggle:hover {
+   background-color: #fed503;
+   }
 
+
+
+  </style>
   </head>
 
   <body id="page-top">
@@ -76,6 +104,10 @@
           <a class="btn btn-primary btn-xl text-uppercase js-scroll-trigger" href="#services">Tell Me More</a>
         </div>
       </div>
+	  
+	  
+
+	  
     </header>
 
     <!-- Services -->
@@ -421,47 +453,22 @@
         </div>
       </div>
     </footer>
-     
-	 <div id="agent1">
-	     <link rel='stylesheet' href='https://www.botlibre.com/css/chatlog.css' type='text/css'>
-<link rel='stylesheet' href='https://www.botlibre.com/css/blue_bot_button.css' type='text/css'>
-<style>
-
-#botplatformbox {} #botplatformboxbar {} #botplatformboxbarmax {} #botplatformboxmin {} #botplatformboxmax {} #botplatformboxclose {} #botplatformbubble-text {} #botplatformbox-input {}
-</style>
-<script type='text/javascript' src='https://www.botlibre.com/scripts/sdk.js'></script>
-<script type='text/javascript'>
-SDK.applicationId = "8210767614946840708";
-SDK.backlinkURL = "http://www.botlibre.com/login?affiliate=Rogues";
-SDK.lang = "en";
-var sdk = new SDKConnection();
-var web = new WebChatbotListener();
-web.connection = sdk;
-web.instance = "20867088";
-web.instanceName = "Dw-Develops-CS";
-web.prefix = "botplatform";
-web.caption = "Chat Now";
-web.boxLocation = "bottom-right";
-web.color = "#009900";
-web.background = "#fff";
-web.css = "https://www.botlibre.com/css/chatlog.css";
-web.version = 6.0;
-web.bubble = true;
-web.backlink = true;
-web.showMenubar = true;
-web.showBoxmax = true;
-web.showSendImage = true;
-web.showChooseLanguage = true;
-web.nativeVoice = true;
-web.nativeVoiceName = "Microsoft David Desktop - English (United States)";
-web.lang = "en-US";
-SDK.lang = "en-US";
-web.chatLog = true;
-web.popupURL = "https://www.botlibre.com/chat?&id=20867088&embedded=true&chatLog=true&facebookLogin=false&application=8210767614946840708&bubble=true&menubar=true&chooseLanguage=true&sendImage=true&background=%23fff&prompt=You+say&send=&css=https://www.botlibre.com/css/chatlog.css&language=en";
-web.createBox();
-</script>
-	 </div>
+	
+	
+    
+	 <div id="agent1" class='two'>
+	    
+	   
+		<i class="fa fa-comments" id='toggle' aria-hidden="true" onclick='popUp()'></i>
+		</button>
 	 
+  </div>
+	 
+	   
+	 
+</div>
+	
+	 <p id="demo"></p>
 	 
     <!-- Portfolio Modals -->
 
@@ -580,7 +587,45 @@ web.createBox();
 
     <!-- Custom scripts for this template -->
     <script src="js/agency.min.js"></script>
+	
+	
+	
+	<!--------Bot Ui Agent ----------->
+	
+	 <script src="https://cdn.jsdelivr.net/vue/latest/vue.min.js"></script>
+    <script src="https://unpkg.com/botui/build/botui.js"></script>
+    <script type="text/javascript" src="js/agentUi.js"></script>
+	
+   
+      <script>
+	  
+	   
+	  
+	  	//popup browser window
+	
+/* Window Object: size, open, close, move */
+function popUp() {
+window.addEventListener('resize', update);
+var x = window.document.getElementById("demo");
+update();
 
+function update() {
+  x.innerHTML = "Browser inner window width: " + 
+    window.innerWidth + ", height: " + window.innerHeight + ".";
+	
+}
+
+var newWindowObj = window.open("http://dwdevelops.com/pages/agentPopUp.html", "newWindow", "menubar=true,location=true,resizable=true,scrollbars=false,width=675,height=575,top=75,left=300");
+
+function move() {
+  newWindowObj.moveBy(50,0);
+  newWindowObj.focus();
+}
+	}  
+	  </script>
+	
+	
+	
   </body>
 
 </html>
